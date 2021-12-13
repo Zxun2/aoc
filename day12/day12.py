@@ -18,19 +18,19 @@ def solve():
     stack = collections.deque([start])
         
     while stack:
-        pos, small, twice = stack.popleft()
+        pos, cow, seen = stack.popleft()
         if pos == 'end':
             routes += 1 
             continue
 
         for y in dict[pos]:
-            if y not in small:
-                new_small = set(small)
+            if y not in cow:
+                new_cow = set(cow)
                 if y.lower() == y:
-                    new_small.add(y)
-                stack.append((y, new_small, twice))
-            elif y in small and twice is None and y not in ['start', 'end']:
-                stack.append((y, small, y))
+                    new_cow.add(y)
+                stack.append((y, new_cow, seen))
+            elif y in cow and seen is None and y not in ['start', 'end']:
+                stack.append((y, cow, y))
 
     print(routes)
 
