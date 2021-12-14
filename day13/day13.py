@@ -13,7 +13,6 @@ def p1(lines, p2=False):
             break
         x, y = map(int, p.split(","))
         d.add((x, y))
-    print(d)
 
     folds = list(map(lambda l: l.split()[-1].split("="), lines[idx+1:]))
 
@@ -40,8 +39,7 @@ def p2(lines):
     max_x = max(d, key=lambda p: p[0])[0]
     max_y = max(d, key=lambda p: p[1])[1]
 
-    return "\n".join([
-        "".join(map(lambda x: "#" if (x, y) in d else ".", range(max_x + 1)))
+    return "\n".join(["".join(map(lambda x: "#" if (x, y) in d else ".", range(max_x + 1)))
         for y in range(max_y + 1)
     ])
 
