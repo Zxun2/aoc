@@ -21,7 +21,7 @@ def shortest_distance(data, t):
             # quotient and remainder
             a, am = divmod(x_, len(data))
             b, bm = divmod(y_, len(data[0]))
-            # subtracted 1 to exclude the start
+            # can be mod 10, so no need to subtract
             n = ((data[am][bm] + a + b) - 1) % 9 + 1
 
             if (x_, y_) not in seen:
@@ -31,7 +31,7 @@ def shortest_distance(data, t):
 
 
 if __name__ == "__main__":
-    with open("day15.txt") as f:
+    with open("./day15.txt") as f:
         data = [list(map(int, line)) for line in f.read().strip().split("\n")]
 
         print(shortest_distance(data, 1))
