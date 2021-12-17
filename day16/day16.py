@@ -89,15 +89,14 @@ def p1(lines, p2=False):
     print(sum(s))
     print(values)
 
-    # def unpack(bit_string, index, value=0, part=None, sum=0):
-    #     sum += int(bit_string[index:index+3], 2)
-    #     string = bit_string[index+3 : index+6]
-    #     print(index+3, index+6)
+    # def unpack(bit_string, value=0, part=None, sum=0):
+    #     sum += int(bit_string[:3], 2)
+    #     string = bit_string[3 : 6]
     #     packetID = int(string, 2)
 
     #     if packetID == 4: # is_literal 
     #         literal = ""
-    #         for i in range(index + 6, len(bit_string) - 1, 5):
+    #         for i in range( 6, len(bit_string) - 1, 5):
     #             literalPart = bit_string[i+1 : i+5]
     #             literal += literalPart
     #             if bit_string[i] != "0":
@@ -112,7 +111,7 @@ def p1(lines, p2=False):
     #                         return sum
     #                     else:
     #                         # start of new pack
-    #                         return unpack(bit_string[i + 5: ], i + 5,
+    #                         return unpack(bit_string[i + 5: ],
     #                                     value - literal_value, part, sum)
     #                 else: # False 
     #                     value[1] += 1
@@ -120,22 +119,22 @@ def p1(lines, p2=False):
     #                         return sum
     #                     else: 
     #                         # start of new pack
-    #                         return unpack(bit_string[i + 5: ], i + 5,
+    #                         return unpack(bit_string[i + 5: ], 
     #                                     value, part, sum)
 
 
 
     #     else: # is_operator
-    #         length_id = bit_string[index + 6]
+    #         length_id = bit_string[6]
     #         if length_id == "0": # 15 bits
-    #             totalLength = int(bit_string[index + 7 : index + 7 + 15], 2)
+    #             totalLength = int(bit_string[7 :  7 + 15], 2)
 
     #             # start of new pack
-    #             return unpack(bit_string[index + 7 + 15 :],  index + 7 + 15, totalLength, True, sum)
+    #             return unpack(bit_string[7 + 15 :] , totalLength, True, sum)
                                 
     #         else: # 11 bits
-    #             numPackets = int(bit_string[index + 7 : index + 7 + 11], 2)
-    #             return unpack(bit_string[ index + 7 + 11 :], index + 7 + 11, [numPackets, 0], False, sum)
+    #             numPackets = int(bit_string[7 :  7 + 11], 2)
+    #             return unpack(bit_string[   7 + 11 :],  [numPackets, 0], False, sum)
 
         
 
