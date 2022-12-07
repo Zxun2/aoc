@@ -52,20 +52,14 @@ def part1():
   MAX_SIZE = 100000
   root = create_filesystem()
   total_size = 0
-
   def findSize(node):
     nonlocal total_size
-
     if isinstance(node, File):  
       return node.size
-
     node.size = sum(list(map(lambda n: findSize(n), node.children.values())))
-
     if node.size <= MAX_SIZE:
       total_size += node.size
-
     return node.size
-
   findSize(root)
   return total_size, root
 
@@ -82,7 +76,6 @@ def part2():
     arr.append(node.size)
     for node in node.children.values():
       contiguous_arr(node)
-
   contiguous_arr(root)
   arr = sorted(arr)
   return arr[bisect_left(arr, TARGET_SIZE)]
